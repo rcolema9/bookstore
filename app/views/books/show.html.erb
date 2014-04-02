@@ -9,3 +9,6 @@
 
 <%= link_to 'All Books', books_path %>
 | <%= link_to 'Edit', edit_book_path(@book) %>
+<%= button_to 'Delete', @book,
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
