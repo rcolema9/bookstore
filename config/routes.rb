@@ -7,7 +7,13 @@ Bookstore::Application.routes.draw do
   #patch "/books/:id" => "books#update"
   #delete "/books/:id" => "books#destroy"
   
-  resources :books
+  #Original resources line...changed in class 10, lab 7 - Pagination
+  #resources :books do
+
+  resources :books do
+    get 'page/:page', :action => :index, :on => :collection
+  end
+
   root 'books#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
