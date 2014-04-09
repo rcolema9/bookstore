@@ -1,4 +1,5 @@
-<%= render 'shared/flashes' %>
+<% content_for :title, @book.title %>
+<!--<%= render 'shared/flashes' %>-->
 <article class="book">
   <header>
     <h2><%= @book.title %></h2>
