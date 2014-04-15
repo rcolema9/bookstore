@@ -1,4 +1,15 @@
 Bookstore::Application.routes.draw do
+  
+  resources :books do
+    resources :reviews
+    get 'page/:page', :action => :index, :on => :collection
+  end
+  
+  root 'books#index'
+
+  #Changed from below to the above resources
+  #resources :reviews
+
   #get "/books" => "books#index", as: 'books'
   #get "/books/new" => "books#new", as: 'new_book'
   #get "/books/:id" => "books#show", as: 'book'
@@ -9,12 +20,6 @@ Bookstore::Application.routes.draw do
   
   #Original resources line...changed in class 10, lab 7 - Pagination
   #resources :books do
-
-  resources :books do
-    get 'page/:page', :action => :index, :on => :collection
-  end
-
-  root 'books#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
