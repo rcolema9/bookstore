@@ -1,4 +1,8 @@
 source 'https://rubygems.org'
+
+#Added gem powerpack in class 11 - lab 5
+gem 'powerpack'
+
 # Added 3 following gems in Class 10
 gem 'kaminari'
 gem 'kaminari-bootstrap', '~> 3.0.1'

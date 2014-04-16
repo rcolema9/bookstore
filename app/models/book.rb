@@ -15,9 +15,13 @@ class Book < ActiveRecord::Base
 
   has_many :reviews, dependent: :destroy
 
-def average_stars
-  reviews.average(:stars)
-end
-
-
+  def average_stars
+    if reviews.loaded?
+      reviews.map(&:stars).compact.average
+    else
+      reviews.average(:stars)
+    end
+    #Replaced the following in class 11 - lab 5
+    #reviews.average(:stars)
+  end
 end

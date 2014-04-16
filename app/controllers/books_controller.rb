@@ -3,10 +3,18 @@ class BooksController < ApplicationController
 before_action :set_book, only: [ :show, :edit, :update, :destroy ]
 
   def index
-	  @available_at = Time.now
+	  
+    @available_at = Time.now
+    @books = Book.includes(:reviews).order(:title).page(params[:page])
+    
+
+    #Replaced available_at and the second @books statement below to the above statment
+    #@available_at = Time.now
+    
     #Changed Book.all to the followiong line in class 10, Lab 7 - Pagination
     #@books = Book.all
-    @books = Book.order(:title).page(params[:page])
+    #@books = Book.order(:title).page(params[:page])
+    
   end
 
   def show

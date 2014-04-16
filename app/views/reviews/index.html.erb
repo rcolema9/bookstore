@@ -13,4 +13,12 @@
     </li>
   <% end %>
 </ol>
+<!--The line below was replaced by the following lines of code in Class 11 - lab 6
 <%= link_to 'Write a Review', new_book_review_path(@book) %>
+-->
+<%= link_to 'Write a Review', new_book_review_path(@book),
+        remote: true,
+        data: { 'update-target' => 'review_form_container' },
+        class: 'btn btn-primary' %>
+
+<div id="review_form_container"></div>
